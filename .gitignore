@@ -1,0 +1,71 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build / Production
+dist/
+build/
+.cache/
+.venv/
+_pycache_/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+logs/*/.log
+*.pid
+*.seed
+*.pid.lock
+
+# OS system files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+.history/
+
+# Docker
+docker-compose.override.yml
+*.pid
+*.tar
+*.bak
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+_pycache_/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+
+# Coverage / Tests
+coverage/
+.nyc_output/
+jest-results.json
+
+# AI / ML related
+models/
+checkpoints/
+data/
+*.h5
+*.pth
+*.pt
+
+# Cloud or secret configs
+*.key
+*.pem
+*.crt
