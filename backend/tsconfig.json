@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+
+  /* ====================================================================== */
+  /*  DÉBROUILLE BACKEND — TSCONFIG OFFICIEL                                 */
+  /*  STABLE • ENTERPRISE • LONG TERM • WORLD CLASS                          */
+  /* ====================================================================== */
+  /*                                                                          */
+  /*  🎯 OBJECTIFS STRATÉGIQUES :                                             */
+  /*  - Compilation fiable et déterministe                                   */
+  /*  - Typage strict sans explosion de dette technique                       */
+  /*  - Compatible TypeScript 5+                                             */
+  /*  - Performance maîtrisée                                                */
+  /*  - Évolutivité monorepo / microservices                                  */
+  /*  - Zéro option dépréciée                                                 */
+  /*                                                                          */
+  /* ====================================================================== */
+
+  "compilerOptions": {
+    /* ---------------------------------------------------------------------- */
+    /* 🧠 RUNTIME TARGET                                                      */
+    /* ---------------------------------------------------------------------- */
+
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* ---------------------------------------------------------------------- */
+    /* 🔒 STRICTNESS — PRODUCTION SAFE                                         */
+    /* ---------------------------------------------------------------------- */
+
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+
+    /* ---------------------------------------------------------------------- */
+    /* 🧹 QUALITÉ & ROBUSTESSE                                                 */
+    /* ---------------------------------------------------------------------- */
+
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /*
+     * Désactivé volontairement :
+     * - Trop cassant sur bases de code larges
+     * - Peut être réactivé progressivement plus tard
+     */
+    "exactOptionalPropertyTypes": false,
+
+    /* ---------------------------------------------------------------------- */
+    /* 🏗️ BUILD & EMISSION                                                    */
+    /* ---------------------------------------------------------------------- */
+
+    "declaration": false,
+    "sourceMap": true,
+    "removeComments": true,
+    "incremental": true,
+    "tsBuildInfoFile": "./node_modules/.cache/tsbuildinfo",
+
+    /* ---------------------------------------------------------------------- */
+    /* 🔄 NODE / ECOSYSTEM INTEROP                                             */
+    /* ---------------------------------------------------------------------- */
+
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+
+    /* ---------------------------------------------------------------------- */
+    /* 🌍 TYPES GLOBAUX                                                       */
+    /* ---------------------------------------------------------------------- */
+
+    "types": ["node"],
+
+    /* ---------------------------------------------------------------------- */
+    /* ⚡ PERFORMANCE                                                         */
+    /* ---------------------------------------------------------------------- */
+
+    "skipLibCheck": true,
+
+    /* ---------------------------------------------------------------------- */
+    /* 🧭 PATH ALIASES (ARCHITECTURE PROPRE)                                   */
+    /* ---------------------------------------------------------------------- */
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@core/*": ["src/core/*"],
+      "@modules/*": ["src/modules/*"],
+      "@db/*": ["src/database/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@config/*": ["src/config/*"],
+      "@shared/*": ["src/shared/*"]
+    },
+
+    /* ---------------------------------------------------------------------- */
+    /* 🛡️ SAFE DEFAULTS                                                      */
+    /* ---------------------------------------------------------------------- */
+
+    "useDefineForClassFields": true
+  },
+
+  /* ------------------------------------------------------------------------ */
+  /* 📦 PÉRIMÈTRE DE COMPILATION                                              */
+  /* ------------------------------------------------------------------------ */
+
+  "include": [
+    "src/**/*.ts"
+  ],
+
+  /* ------------------------------------------------------------------------ */
+  /* 🚫 EXCLUSIONS (BUILD PRODUCTION)                                         */
+  /* ------------------------------------------------------------------------ */
+
+  "exclude": [
+    "node_modules",
+    "dist",
+    "docs",
+    "scripts",
+    "coverage",
+    "src/modules/_template",
+
+    /* Tests exclus du build principal */
+    "src/tests",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
+}
